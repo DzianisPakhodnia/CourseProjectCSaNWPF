@@ -118,11 +118,7 @@ namespace CourseProjectCSaNWPF
                 byte[] dataPassword = System.Text.Encoding.ASCII.GetBytes(textBox2.Text);
 
                 // Отправляем логин на сервер
-                stream.Write(dataLogin, 0, dataLogin.Length);
-
-                // Отправляем пароль на сервер
-                stream.Write(dataPassword, 0, dataPassword.Length);
-
+                stream.Write(System.Text.Encoding.ASCII.GetBytes(textBox1.Text + ":" + textBox2.Text), 0, (textBox1.Text + ":" + textBox2.Text).Length);
                 // Выводим информацию об отправленных данных в консоль
                 Console.WriteLine("Sent: {0}:{1}", textBox1.Text, textBox2.Text);
 
